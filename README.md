@@ -23,8 +23,9 @@ If the cryptography package is not installed, you can install it using pip:
 pip install cryptography
 ```
 
-2. File Preparation
-   Before decrypting the encrypted file, you need to make sure you have the following files in place:
+### 2. File Preparation
+
+Before decrypting the encrypted file, you need to make sure you have the following files in place:
 
 Encrypted File (wallet.dat.b64): The file you want to decrypt.
 Encrypted Key File (wallet_key.enc.b64): The key file required for decryption.
@@ -39,7 +40,8 @@ mkdir files
 
 Place the encrypted file (wallet.dat.b64), encrypted key file (wallet_key.enc.b64), and key file (msk.key.b64) in the "files" folder.
 
-extension. 3. Running the Script
+### 3. Running the Script
+
 You can run the script by executing the following command in your terminal or command prompt:
 
 ```bash
