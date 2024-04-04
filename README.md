@@ -45,7 +45,7 @@ Place the encrypted file (wallet.dat.b64), encrypted key file (wallet_key.enc.b6
 You can run the script by executing the following command in your terminal or command prompt:
 
 ```bash
-python3 decrypt_file.py
+python3 inabit_recover_keys.py
 ```
 
 The script will decrypt the encrypted file, and save a new file named "wallet_dat.json" in the "files" folder.
