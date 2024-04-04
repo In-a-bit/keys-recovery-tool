@@ -41,7 +41,7 @@ if '__main__' == __name__:
     print('convert base64 to binary file...')
     decode_all_base64_files()
     print('decrypting...')
-    decrypt_file('files/wallet_key.enc', 'files/msk.key', 'wallet.key')
-    decrypt_file('files/wallet.dat', 'wallet.key', 'wallet_dat.json')
-    print('Done. Check your recovered wallet on wallet_dat.json file.')
+    decrypt_file('files/wallet_key.enc', 'files/msk.key', 'files/wallet.key')
+    decrypt_file('files/wallet.dat', 'files/wallet.key', 'files/wallet_dat.json')
+    print('Done. Check your recovered wallet on files/wallet_dat.json file.')
   
