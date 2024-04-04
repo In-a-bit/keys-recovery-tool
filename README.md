@@ -29,7 +29,7 @@ Before decrypting the encrypted file, you need to make sure you have the followi
 
 Encrypted File (wallet.dat.b64): The file you want to decrypt.
 Encrypted Key File (wallet_key.enc.b64): The key file required for decryption.
-Key File (msk.key.b64): The key file required for decrypt the key file.
+Master Key File (msk.key.b64): The master key file required for decrypt the wallet key.
 
 the files should be placed in a "files" folder in the root directory of the project.
 
@@ -38,7 +38,7 @@ cd keys-recovery-tool
 mkdir files
 ```
 
-Place the encrypted file (wallet.dat.b64), encrypted key file (wallet_key.enc.b64), and key file (msk.key.b64) in the "files" folder.
+Place the encrypted file (wallet.dat.b64), encrypted key file (wallet_key.enc.b64), and master key file (msk.key.b64) in the "files" folder.
 
 ### 3. Running the Script
 
