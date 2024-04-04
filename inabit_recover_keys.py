@@ -1,5 +1,6 @@
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 import os
+import base64
 
 
 def decrypt_aes_gcm(encrypted_data, key, iv, tag):
@@ -24,12 +25,23 @@ def decrypt_file(encryptedfile: str, keyfile: str, outputfile: str) -> None:
     with open(outputfile, 'wb') as f:
         f.write(dec)
 
+def decode_base64_file(input_path, output_path):
+    with open(input_path, 'r') as file:
+        base64_data = file.read()
+    binary_data = base64.b64decode(base64_data)
+    with open(output_path, 'wb') as file:
+        file.write(binary_data)
+
+def decode_all_base64_files():
+    for file in os.listdir('files'):
+        if file.endswith('.b64'):
+            decode_base64_file('files/' + file, 'files/' + file[:-4])        
 
 if '__main__' == __name__:
-    for eskFile in os.listdir('DoK2/'):
-        print(eskFile)
-        org, _ = eskFile.split('_')
-        decrypt_file('DoK2/'+eskFile, 'DoK1/msk.key', org+'_sk.key')
-        decrypt_file('DoK3/{}_wallet.dat'.format(org), org+'_sk.key', org+'_wallet.json')
-        # NOTE: coin-address-map file is encrypted using MSK instead of ESK.
-        decrypt_file('DoK3/{}_coin-address-map.enc'.format(org), 'DoK1/msk.key', org+'_coin-address-map.json')
+    print('convert base64 to binary file...')
+    decode_all_base64_files()
+    print('decrypting...')
+    decrypt_file('files/wallet_key.enc', 'files/msk.key', 'files/wallet.key')
+    decrypt_file('files/wallet.dat', 'files/wallet.key', 'files/wallet_dat.json')
+    print('Done. Check your recovered wallet on files/wallet_dat.json file.')
+  
